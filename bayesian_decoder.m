@@ -21,8 +21,23 @@ function [results] = bayesian_decoder(data_path, varargin)
     %
     % Input:
     %   data_path [string] Path to folder containing 'information_data.mat'
-    %                      Must include: SmoothMat_Total, spkMat_Total, 
-    %                                     posTable_array, calmea
+    %       The MAT file must include the following variables:
+    %         - SmoothMat_Total : 1×N cell array
+    %             Each cell contains a 2D spatial firing-rate map
+    %             for one neuron (e.g., 50×50 bins; units = Hz).
+    %         - spkMat_Total    : 1×N cell array
+    %             Each cell contains spike/event times and positions
+    %             for one neuron in the format [t, x, y], where t is
+    %             time in seconds and x,y are spatial coordinates (cm).
+    %         - posTable_array  : T×3 double array
+    %             Behavioral trajectory of the animal in the format
+    %             [t, x, y], where t is time in seconds and x,y are
+    %             positions (cm) sampled at a constant rate.
+    %         - calmea          : N×2 double array
+    %             Per-neuron summary metrics:
+    %               calmea(:,1) = mean firing rate (Hz)
+    %               calmea(:,2) = spatial information score
+    %                             (bits/event, Skaggs measure).
     %
     % Optional name-value pairs:
     %   'num_iterations' [int] Number of random sampling iterations (default: 50)
@@ -349,4 +364,5 @@ function [baseline_error, minute_errors, decoded_pos, real_pos] = ...
             minute_errors(minute_idx) = NaN;
         end
     end
+
 end
