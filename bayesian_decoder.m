@@ -20,7 +20,7 @@ function [results] = bayesian_decoder(data_path, varargin)
     %   results = bayesian_decoder(data_path, 'num_iterations', 50, 'num_shuffles', 1000)
     %
     % Input:
-    %   data_path [string] Path to folder containing 'information_data.mat'
+    %   data_path [string] Path to folder containing 'information_data.mat' %'D:\MJ\Gq seventh\Gq seventh EX 1\12-5\session-2\data'
     %       The MAT file must include the following variables:
     %         - SmoothMat_Total : 1×N cell array
     %             Each cell contains a 2D spatial firing-rate map
@@ -82,7 +82,7 @@ function [results] = bayesian_decoder(data_path, varargin)
         fprintf('Loading data from: %s\n', data_path);
     end
     
-    load([data_path 'information_data.mat']);
+    load([data_path '\information_data.mat']);
     
     SmoothMat_Total = SmoothMat_Total;
     cell_numbers = size(SmoothMat_Total, 1);
@@ -366,3 +366,4 @@ function [baseline_error, minute_errors, decoded_pos, real_pos] = ...
     end
 
 end
+
