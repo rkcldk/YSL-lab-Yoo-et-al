@@ -4,11 +4,11 @@ MATLAB code used in *“Selective roles of astrocytes in the formation and stabi
 
 ## Code overview
 
-`bayesian_decoder.m` : Bayesian decoding of the animal’s position from CA1 population calcium activity (single session).
+`bayesian_decoder.m` : Bayesian decoding of the animal’s position from CA1 population calcium activity (single session). Returns a `results` struct (e.g. mean decoding error and shuffle statistics) and prints summary values to the MATLAB command window.
 
-`GetSpaInfo.m` : Computes Skaggs spatial information (bits/event) from occupancy maps and smoothed rate maps for individual neurons.
+`GetSpaInfo.m` : Computes Skaggs spatial information (bits/event) from occupancy maps and smoothed rate maps for individual neurons. Returns a single scalar spatial information value for the given neuron.
 
-`pv_correlation_mouseMedian.m` : Computes mouse‑level population vector (PV) correlations between two sessions using CellReg‑matched neurons.
+`pv_correlation_mouseMedian.m` : Computes mouse‑level population vector (PV) correlations between two sessions using CellReg‑matched neurons. Saves `pv_correlation_results.mat` (median PV correlation, IQR, min/max, and bin‑wise values) in a new results folder and prints summary statistics.
 
 ## Demo data overview
 
